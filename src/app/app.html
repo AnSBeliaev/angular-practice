@@ -1,11 +1,50 @@
 <main>
-  <h1>Счётчик</h1>
-  <p>
-    Значение: <strong data-testid="count">{{ count() }}</strong>
-  </p>
-  <p>
-    Удвоенное: <strong data-testid="doubled">{{ doubled() }}</strong>
-  </p>
-  <button type="button" (click)="increment()">+1</button>
-  <button type="button" (click)="reset()">Сброс</button>
+  <section>
+    <h1>Счётчик</h1>
+    <p>
+      Значение: <strong data-testid="count">{{ count() }}</strong>
+    </p>
+    <p>
+      Удвоенное: <strong data-testid="doubled">{{ doubled() }}</strong>
+    </p>
+    <button type="button" (click)="increment()">+1</button>
+    <button type="button" (click)="reset()">Сброс</button>
+  </section>
+
+  <section>
+    <h2>Список</h2>
+    <app-search-box [(query)]="query" />
+
+    @let visible = filtered();
+    <p data-testid="visible-count">Показано: {{ visible.length }}</p>
+
+    <ul>
+      @for (task of visible; track task.id) {
+        <li>
+          <app-task-row
+            [task]="task"
+            [selected]="task.id === selectedId()"
+            (pick)="select($event)"
+          />
+        </li>
+      } @empty {
+        <li data-testid="empty">Ничего не найдено</li>
+      }
+    </ul>
+
+    <app-task-detail [task]="selectedTask()">
+      <button type="button" data-testid="toggle-status" (click)="toggleStatus()">
+        Сменить статус
+      </button>
+    </app-task-detail>
+
+    <div class="actions">
+      <button type="button" data-testid="mutate" (click)="mutateSilently()">
+        Мутировать молча
+      </button>
+      <button type="button" data-testid="rename" (click)="renameFirst()">
+        Переименовать через update
+      </button>
+    </div>
+  </section>
 </main>

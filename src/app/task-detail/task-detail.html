@@ -1,0 +1,8 @@
+@if (task(); as current) {
+  <article data-testid="detail">
+    <h2>{{ current.title }}</h2>
+    <ng-content />
+  </article>
+} @else {
+  <p data-testid="detail-empty">Ничего не выбрано</p>
+}

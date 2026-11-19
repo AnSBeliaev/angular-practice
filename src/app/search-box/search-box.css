@@ -1,0 +1,9 @@
+label {
+  display: grid;
+  gap: 0.25rem;
+}
+
+input {
+  font: inherit;
+  padding: 0.35rem 0.5rem;
+}
