@@ -1,0 +1,11 @@
+<main>
+  <h1>Счётчик</h1>
+  <p>
+    Значение: <strong data-testid="count">{{ count() }}</strong>
+  </p>
+  <p>
+    Удвоенное: <strong data-testid="doubled">{{ doubled() }}</strong>
+  </p>
+  <button type="button" (click)="increment()">+1</button>
+  <button type="button" (click)="reset()">Сброс</button>
+</main>

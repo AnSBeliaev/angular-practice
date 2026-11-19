@@ -1,0 +1,9 @@
+main {
+  font-family: system-ui, sans-serif;
+  margin: 2rem auto;
+  max-width: 24rem;
+}
+
+button {
+  margin-right: 0.5rem;
+}
