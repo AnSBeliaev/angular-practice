@@ -1,26 +1,9 @@
 main {
   font-family: system-ui, sans-serif;
   margin: 2rem auto;
-  max-width: 36rem;
+  max-width: 40rem;
 }
 
-section + section {
-  margin-top: 2.5rem;
-}
-
-button {
-  margin-right: 0.5rem;
-}
-
-ul {
-  list-style: none;
-  padding: 0;
-}
-
-li + li {
-  margin-top: 0.5rem;
-}
-
-.actions {
-  margin-top: 1rem;
+a {
+  color: inherit;
 }

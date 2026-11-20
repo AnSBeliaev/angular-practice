@@ -1,0 +1,9 @@
+<form [formGroup]="form">
+  <input data-testid="email" formControlName="email" />
+  @if (form.controls.email.touched && form.controls.email.invalid) {
+    <p data-testid="email-error">Укажите почту</p>
+  }
+  <input data-testid="password" type="password" formControlName="password" />
+  <input data-testid="confirm" type="password" formControlName="confirm" />
+  <button type="submit" data-testid="submit" [disabled]="form.invalid">Создать</button>
+</form>

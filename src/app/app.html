@@ -1,50 +1,34 @@
 <main>
-  <section>
-    <h1>Счётчик</h1>
-    <p>
-      Значение: <strong data-testid="count">{{ count() }}</strong>
-    </p>
-    <p>
-      Удвоенное: <strong data-testid="doubled">{{ doubled() }}</strong>
-    </p>
-    <button type="button" (click)="increment()">+1</button>
-    <button type="button" (click)="reset()">Сброс</button>
-  </section>
+  <h1>Практика Angular</h1>
+  <p>Задачи по порядку. Условие — в файле задачи, проверка — тестом.</p>
 
-  <section>
-    <h2>Список</h2>
-    <app-search-box [(query)]="query" />
+  <h2>Блок 1. Компонент, шаблон, сигналы</h2>
+  <ul>
+    <li><a routerLink="/block1/t01">1.1 Счётчик корзины</a></li>
+    <li><a routerLink="/block1/t02">1.2 Список заказов</a></li>
+    <li><a routerLink="/block1/t03">1.3 Карточка товара</a></li>
+    <li><a routerLink="/block1/t04">1.4 Выбор из фильтра</a></li>
+  </ul>
 
-    @let visible = filtered();
-    <p data-testid="visible-count">Показано: {{ visible.length }}</p>
+  <h2>Блок 2. Сервисы и обновление экрана</h2>
+  <ul>
+    <li><a routerLink="/block2/t05">2.1 Хранилище задач</a></li>
+    <li><a routerLink="/block2/t06">2.2 Две корзины</a></li>
+    <li><a routerLink="/block2/t07">2.3 Черновик, который не сохраняется</a></li>
+  </ul>
 
-    <ul>
-      @for (task of visible; track task.id) {
-        <li>
-          <app-task-row
-            [task]="task"
-            [selected]="task.id === selectedId()"
-            (pick)="select($event)"
-          />
-        </li>
-      } @empty {
-        <li data-testid="empty">Ничего не найдено</li>
-      }
-    </ul>
+  <h2>Блок 3. Потоки, HTTP, роутер</h2>
+  <ul>
+    <li><a routerLink="/block3/t08">3.1 Поиск</a></li>
+    <li><a routerLink="/block3/t09">3.2 Токен в запросах</a></li>
+    <li><a routerLink="/block3/t10">3.3 Закрытая страница</a></li>
+  </ul>
 
-    <app-task-detail [task]="selectedTask()">
-      <button type="button" data-testid="toggle-status" (click)="toggleStatus()">
-        Сменить статус
-      </button>
-    </app-task-detail>
+  <h2>Блок 4. Формы</h2>
+  <ul>
+    <li><a routerLink="/block4/t11">4.1 Регистрация</a></li>
+    <li><a routerLink="/block4/t12">4.2 Регистрация на сигналах</a></li>
+  </ul>
 
-    <div class="actions">
-      <button type="button" data-testid="mutate" (click)="mutateSilently()">
-        Мутировать молча
-      </button>
-      <button type="button" data-testid="rename" (click)="renameFirst()">
-        Переименовать через update
-      </button>
-    </div>
-  </section>
+  <router-outlet />
 </main>

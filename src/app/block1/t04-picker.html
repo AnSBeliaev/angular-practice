@@ -1,0 +1,14 @@
+<label>
+  Поиск
+  <input data-testid="search" [value]="query()" (input)="onSearch($event)" />
+</label>
+
+<ul>
+  @for (item of filtered(); track item.id) {
+    <li>
+      <button type="button" data-testid="item" (click)="select(item.id)">{{ item.title }}</button>
+    </li>
+  }
+</ul>
+
+<p data-testid="selected">{{ selectedTitle() }}</p>

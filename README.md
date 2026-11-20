@@ -1,61 +1,43 @@
-# AngularPractice
+# Практика по Angular: блоки 1–4
 
-Учебный проект по [плану](PLAN.md): Angular 22 для разработчика React.
+12 задач под собеседование на мидл. В каждом файле есть ситуация, что сделать и вопрос, который по этой теме задают на собесе.
 
-This project was generated using [Angular CLI](https://github.com/angular/angular-cli) version 22.3.0.
+К каждой задаче есть тесты. Задача решена, когда её тесты зелёные. После этого вопрос из файла нужно проговорить вслух. Если ответ не собирается, задача не закрыта, даже при зелёных тестах.
 
-## Development server
+Стек: Angular 22, standalone, zoneless. Документация: [angular.dev](https://angular.dev).
 
-To start a local development server, run:
+## Запуск
 
-```bash
-ng serve
+Из папки проекта:
+
+```
+npm start
+npm test -- --watch=false
+npm test -- --watch=false -t test_01
 ```
 
-Once the server is running, open your browser and navigate to `http://localhost:4200/`. The application will automatically reload whenever you modify any of the source files.
+`npm start` открывает список задач на http://localhost:4200/. Сейчас тесты задач красные, так и должно быть. Зелёный только тест оглавления.
 
-## Code scaffolding
+## Задачи
 
-Angular CLI includes powerful code scaffolding tools. To generate a new component, run:
+| Файл | Задача | Тема на собесе |
+|---|---|---|
+| src/app/block1/t01-counter.ts | 1.1 Счётчик корзины | signal, computed, set и update, zoneless |
+| src/app/block1/t02-orders.ts | 1.2 Список заказов | @if, @for, @switch |
+| src/app/block1/t03-product-card.ts | 1.3 Карточка товара | input, output, model |
+| src/app/block1/t04-picker.ts | 1.4 Выбор из фильтра | linkedSignal |
+| src/app/block2/t05-task-store.ts | 2.1 Хранилище задач | сервис, providedIn, inject, asReadonly |
+| src/app/block2/t06-panel.ts | 2.2 Две корзины | иерархия инжекторов |
+| src/app/block2/t07-draft.ts | 2.3 Черновик, который не сохраняется | что обновляет экран без zone.js |
+| src/app/block3/t08-latest-search.ts | 3.1 Поиск | switchMap, mergeMap, exhaustMap |
+| src/app/block3/t09-auth-interceptor.ts | 3.2 Токен в запросах | HttpInterceptorFn |
+| src/app/block3/t10-auth-guard.ts | 3.3 Закрытая страница | CanActivateFn |
+| src/app/block4/t11-signup.ts | 4.1 Регистрация | реактивные формы, кросс-поле |
+| src/app/block4/t12-signal-signup.ts | 4.2 Регистрация на сигналах | Signal Forms |
 
-```bash
-ng generate component component-name
-```
+## Правила
 
-For a complete list of available schematics (such as `components`, `directives`, or `pipes`), run:
-
-```bash
-ng generate --help
-```
-
-## Building
-
-To build the project run:
-
-```bash
-ng build
-```
-
-This will compile your project and store the build artifacts in the `dist/` directory. By default, the production build optimizes your application for performance and speed.
-
-## Running unit tests
-
-To execute unit tests with the [Vitest](https://vitest.dev/) test runner, use the following command:
-
-```bash
-ng test
-```
-
-## Running end-to-end tests
-
-For end-to-end (e2e) testing, run:
-
-```bash
-ng e2e
-```
-
-Angular CLI does not come with an end-to-end testing framework by default. You can choose one that suits your needs.
-
-## Additional Resources
-
-For more information on using the Angular CLI, including detailed command references, visit the [Angular CLI Overview and Command Reference](https://angular.dev/tools/cli) page.
+- Решать по порядку, блок за блоком.
+- Документацию angular.dev читать можно и нужно. Готовые решения не искать. Код задачи писать самому: на собесе подсказок не будет.
+- Тесты не менять. Имена классов, функций и `data-testid` из условия тоже.
+- В задачах 1.4, 2.2, 2.3, 3.1 часть кода уже написана и работает неправильно. Исправлять причину, а не тест.
